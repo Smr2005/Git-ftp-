@@ -1,15 +1,12 @@
-# Git-FTP Made Easy â€” Complete Beginner & Advanced Guide
+# Git-FTP Made Easy Complete Beginner & Advanced Guide
 
-**Prepared by:** Shaik Sameer Shubhan  
-**Theme:** Professional Blue Edition  
-**Version:** 3.0 (Includes Windows Installation + Automation + Examples)
 
 ---
 
 ## Overview
 
 **Git-FTP** is a Git extension that lets you **deploy your project directly to an FTP server** using Git commands.  
-It uploads **only changed files** since the last commit â€” saving time, bandwidth, and effort.
+It uploads **only changed files** since the last commit saving time, bandwidth, and effort.
 
 ---
 
@@ -47,7 +44,7 @@ git ftp --version
 
 ## Basic Git-FTP Commands (with Examples)
 
-### `git ftp init` â€” First-time upload
+### `git ftp init` First-time upload
 Uploads the entire project to FTP for the first time.
 
 ```bash
@@ -63,7 +60,7 @@ B --> C[Live Website]
 
 ---
 
-###`git ftp push` â€” Upload only changes
+###`git ftp push` Upload only changes
 Uploads only modified files since last deployment.
 
 ```bash
@@ -78,7 +75,7 @@ A[Local Git Repo] -->|push changed files| B[FTP Server]
 
 ---
 
-### `git ftp catchup` â€” Mark server as up to date
+### `git ftp catchup`  Mark server as up to date
 When you already have files on FTP but not deployed with Git-FTP.
 
 ```bash
@@ -94,7 +91,7 @@ B --> C[Git Repo Hash Synced]
 
 ---
 
-### `git ftp show` â€” View last deployed commit
+### `git ftp show` View last deployed commit
 ```bash
 git ftp show
 ```
@@ -107,7 +104,7 @@ A[FTP Metadata File] -->|show| B[Commit Hash Output]
 
 ---
 
-### `git ftp log` â€” View upload logs
+### `git ftp log` View upload logs
 ```bash
 git ftp log
 ```
@@ -120,7 +117,7 @@ A[FTP Server Log File] -->|log| B[Developer Console Output]
 
 ---
 
-### `git ftp clean` â€” Remove deleted files
+### `git ftp clean` Remove deleted files
 ```bash
 git ftp clean
 ```
@@ -133,7 +130,7 @@ A[Local Files Removed] -->|clean| B[FTP Server Removes Same Files]
 
 ---
 
-### `git ftp download` â€” Download remote files
+### `git ftp download` Download remote files
 ```bash
 git ftp download ftp://example.com/public_html/
 ```
@@ -233,7 +230,7 @@ git ftp push
 
 ---
 
-## CI/CD Automation â€” GitHub Actions
+## CI/CD Automation GitHub Actions
 
 Automate deployment when pushing to `main` branch.
 
