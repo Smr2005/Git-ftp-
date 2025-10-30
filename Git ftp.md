@@ -1,4 +1,4 @@
-# ðŸ’™ Git-FTP Made Easy â€” Complete Beginner & Advanced Guide
+# Git-FTP Made Easy â€” Complete Beginner & Advanced Guide
 
 **Prepared by:** Shaik Sameer Shubhan  
 **Theme:** Professional Blue Edition  
@@ -6,16 +6,16 @@
 
 ---
 
-## ðŸ§­ Overview
+## Overview
 
 **Git-FTP** is a Git extension that lets you **deploy your project directly to an FTP server** using Git commands.  
 It uploads **only changed files** since the last commit â€” saving time, bandwidth, and effort.
 
 ---
 
-## âš™ï¸ Installation on Windows
+## Installation on Windows
 
-### ðŸ§ Method 1: Git Bash (Recommended)
+### Method 1: Git Bash (Recommended)
 
 1. Open **Git Bash**.  
 2. Run:
@@ -29,11 +29,11 @@ It uploads **only changed files** since the last commit â€” saving time, ba
    git ftp --version
    ```
 
-âœ… *If version appears â€” installation succeeded.*
+ *If version appears installation succeeded.*
 
 ---
 
-### ðŸ« Method 2: Chocolatey (Simplest)
+### Method 2: Chocolatey (Simplest)
 ```bash
 choco install git-ftp
 ```
@@ -45,15 +45,15 @@ git ftp --version
 
 ---
 
-## ðŸš€ Basic Git-FTP Commands (with Examples)
+## Basic Git-FTP Commands (with Examples)
 
-### 1ï¸âƒ£ `git ftp init` â€” First-time upload
+### `git ftp init` â€” First-time upload
 Uploads the entire project to FTP for the first time.
 
 ```bash
 git ftp init -u username -p password ftp://example.com/public_html/
 ```
-ðŸ“˜ *Use only once to initialize deployment.*
+ *Use only once to initialize deployment.*
 
 ```mermaid
 flowchart LR
@@ -63,13 +63,13 @@ B --> C[Live Website]
 
 ---
 
-### 2ï¸âƒ£ `git ftp push` â€” Upload only changes
+###`git ftp push` â€” Upload only changes
 Uploads only modified files since last deployment.
 
 ```bash
 git ftp push -u username -p password ftp://example.com/public_html/
 ```
-ðŸ“˜ *Fast sync of updated files only.*
+*Fast sync of updated files only.*
 
 ```mermaid
 flowchart LR
@@ -78,13 +78,13 @@ A[Local Git Repo] -->|push changed files| B[FTP Server]
 
 ---
 
-### 3ï¸âƒ£ `git ftp catchup` â€” Mark server as up to date
+### `git ftp catchup` â€” Mark server as up to date
 When you already have files on FTP but not deployed with Git-FTP.
 
 ```bash
 git ftp catchup -u username -p password ftp://example.com/public_html/
 ```
-ðŸ“˜ *Syncs commit hash to server without uploading anything.*
+*Syncs commit hash to server without uploading anything.*
 
 ```mermaid
 flowchart TD
@@ -94,11 +94,11 @@ B --> C[Git Repo Hash Synced]
 
 ---
 
-### 4ï¸âƒ£ `git ftp show` â€” View last deployed commit
+### `git ftp show` â€” View last deployed commit
 ```bash
 git ftp show
 ```
-ðŸ“˜ *Displays last uploaded Git commit hash.*
+ *Displays last uploaded Git commit hash.*
 
 ```mermaid
 flowchart LR
@@ -107,11 +107,11 @@ A[FTP Metadata File] -->|show| B[Commit Hash Output]
 
 ---
 
-### 5ï¸âƒ£ `git ftp log` â€” View upload logs
+### `git ftp log` â€” View upload logs
 ```bash
 git ftp log
 ```
-ðŸ“˜ *Shows deployment history and timestamps.*
+*Shows deployment history and timestamps.*
 
 ```mermaid
 flowchart TD
@@ -120,11 +120,11 @@ A[FTP Server Log File] -->|log| B[Developer Console Output]
 
 ---
 
-### 6ï¸âƒ£ `git ftp clean` â€” Remove deleted files
+### `git ftp clean` â€” Remove deleted files
 ```bash
 git ftp clean
 ```
-ðŸ“˜ *Deletes remote files removed locally.*
+*Deletes remote files removed locally.*
 
 ```mermaid
 flowchart LR
@@ -133,11 +133,11 @@ A[Local Files Removed] -->|clean| B[FTP Server Removes Same Files]
 
 ---
 
-### 7ï¸âƒ£ `git ftp download` â€” Download remote files
+### `git ftp download` â€” Download remote files
 ```bash
 git ftp download ftp://example.com/public_html/
 ```
-ðŸ“˜ *Pulls project files from FTP to local folder.*
+*Pulls project files from FTP to local folder.*
 
 ```mermaid
 flowchart LR
@@ -146,7 +146,7 @@ A[FTP Server Files] -->|download| B[Local Machine]
 
 ---
 
-## ðŸ§© Configuration Commands
+## Configuration Commands
 
 Before using Git-FTP, configure once per project:
 
@@ -158,7 +158,7 @@ git config git-ftp.syncroot "dist/"
 git config git-ftp.insecure 1
 ```
 
-âœ… *These are stored inside `.git/config` for auto-use.*
+*These are stored inside `.git/config` for auto-use.*
 
 ```mermaid
 flowchart TD
@@ -168,7 +168,7 @@ B --> C[Used by future git ftp commands]
 
 ---
 
-## ðŸ“ Include & Ignore Files
+## Include & Ignore Files
 
 Control what gets uploaded:
 
@@ -193,7 +193,7 @@ B -->|upload| C[FTP Server Final Files]
 
 ---
 
-## âš™ï¸ Advanced Commands & Flags
+## Advanced Commands & Flags
 
 | Command | Description | Example |
 |----------|--------------|----------|
@@ -211,21 +211,21 @@ B -->|upload| C[FTP Server]
 
 ---
 
-## ðŸ§  Examples for Common Workflows
+## Examples for Common Workflows
 
-### ðŸ”¹ Full Deployment (First Time)
+### Full Deployment (First Time)
 ```bash
 git ftp init -u user -p pass ftp://example.com/public_html/
 ```
 
-### ðŸ”¹ Normal Update
+### Normal Update
 ```bash
 git add .
 git commit -m "Updated homepage"
 git ftp push
 ```
 
-### ðŸ”¹ After Manual FTP Upload
+### After Manual FTP Upload
 ```bash
 git ftp catchup
 git ftp push
@@ -233,7 +233,7 @@ git ftp push
 
 ---
 
-## â˜ï¸ CI/CD Automation â€” GitHub Actions
+## CI/CD Automation â€” GitHub Actions
 
 Automate deployment when pushing to `main` branch.
 
@@ -269,7 +269,7 @@ E --> F[Website Live!]
 
 ---
 
-## ðŸ’¡ Tips & Best Practices
+## Tips & Best Practices
 
 - Use **environment variables** for credentials:
   ```bash
@@ -282,7 +282,7 @@ E --> F[Website Live!]
 
 ---
 
-## ðŸ§° Troubleshooting
+## Troubleshooting
 
 | Issue | Cause | Fix |
 |-------|--------|-----|
@@ -293,7 +293,7 @@ E --> F[Website Live!]
 
 ---
 
-## ðŸ§¾ Command Summary
+## Command Summary
 
 | Command | Purpose | Example |
 |----------|----------|----------|
@@ -310,17 +310,17 @@ E --> F[Website Live!]
 
 ---
 
-## ðŸŒ References
+## References
 
-- ðŸ”— [Git-FTP GitHub Repo](https://github.com/git-ftp/git-ftp)  
-- ðŸ”— [Git-SCM Documentation](https://git-scm.com/docs/git-ftp)  
-- ðŸ”— [DigitalOcean FTP Deployment Guide](https://www.digitalocean.com/community/tutorials/how-to-use-git-ftp-to-deploy-your-website)
+- — [Git-FTP GitHub Repo](https://github.com/git-ftp/git-ftp)  
+- — [Git-SCM Documentation](https://git-scm.com/docs/git-ftp)  
+- — [DigitalOcean FTP Deployment Guide](https://www.digitalocean.com/community/tutorials/how-to-use-git-ftp-to-deploy-your-website)
 
 ---
 
-## ðŸ Summary
+## Summary
 
 **Git-FTP** streamlines your website deployment process â€” just push your Git commits, and your site stays perfectly synced with your repo.  
 Itâ€™s lightweight, fast, and ideal for simple web hosting servers.
 
-ðŸ’™ *Now you can deploy smarter, not harder.*
+*Now you can deploy smarter, not harder.*
